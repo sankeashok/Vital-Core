@@ -61,7 +61,7 @@ jobs:
 
       - name: 🏗️ Build Local Docker Verification Image
         run: |
-          docker build -t vital-core:test .
+          docker build --load -t vital-core:test .
           docker images | grep vital-core
           echo "✅ Docker verification container built successfully!"
 
