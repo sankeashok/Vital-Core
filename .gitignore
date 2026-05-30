@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+mlflow.db
+mlruns/
+data/feature_store.db
+models/vital_core_production_model.pkl
+models/active_model_manifest.json
