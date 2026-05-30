@@ -2,6 +2,8 @@
 
 ![Vital-Core Preview](vital_core_preview.png)
 
+*Pipeline Status: Verified & Automated via GitOps.*
+
 🚀 **Live Demo**: Production-grade, zero-cost MLOps pipeline bridging Tabular Wearable Telemetry predictions and LLMOps Clinical translations.
 
 ---
