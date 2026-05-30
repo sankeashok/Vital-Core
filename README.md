@@ -1,3 +1,13 @@
+---
+title: Vital-Core
+emoji: 🩺
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # ☀️ Vital-Core: Enterprise Healthcare & Wearable Intelligence MLOps Platform
 
 ![Vital-Core Preview](vital_core_preview.png)
