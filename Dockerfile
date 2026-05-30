@@ -19,9 +19,11 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
+# Create runtime data directories (bypasses git empty folder check)
+RUN mkdir -p data/raw data/processed models
+
 # Copy application source directories
 COPY src/ ./src/
-COPY data/ ./data/
 
 # Pre-seed the SQLite feature store database inside the image build stage
 RUN python -c "from src.core.feature_store import get_feature_store_instance; fs = get_feature_store_instance(); fs.seed_initial_data(3000)"
