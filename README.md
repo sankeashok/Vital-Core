@@ -126,4 +126,4 @@ python -m pytest -v
 
 ---
 
-Built with ❤️ by **[Ashok Sanke](https://github.com/sankeashok)** for enterprise wearable analytics, sustainable homeostatic diagnostics, and Zero-Cost MLOps.
+Built with ❤️ by **[Ashok Sanke](https://github.com/sankeashok)** for enterprise wearable analytics, sustainable homeostatic diagnostics, and Zero-Cost MLOps Platform.
