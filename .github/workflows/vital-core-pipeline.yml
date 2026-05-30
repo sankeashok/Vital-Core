@@ -115,5 +115,10 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git remote add hf https://sankeashook:$HF_TOKEN@huggingface.co/spaces/sankeashook/Vital-Core || true
-          git push --force hf HEAD:main
+          
+          # Create a clean orphan branch with no history to avoid pushing large binary files
+          git checkout --orphan temp-hf-branch
+          git rm -f vital_core_preview.png || true
+          git commit -m "deploy: clean Hugging Face space release"
+          git push --force hf temp-hf-branch:main
 
