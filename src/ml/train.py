@@ -90,6 +90,11 @@ class VitalCoreTrainer:
         logger.info(f"🎯 Best Hyperparameters Selected: {best_params} | Best CV RMSE: {best_cv_rmse:.4f}")
         
         # Setup MLflow Experiment and Run
+        if settings.MLFLOW_TRACKING_USERNAME:
+            os.environ["MLFLOW_TRACKING_USERNAME"] = settings.MLFLOW_TRACKING_USERNAME
+        if settings.MLFLOW_TRACKING_PASSWORD:
+            os.environ["MLFLOW_TRACKING_PASSWORD"] = settings.MLFLOW_TRACKING_PASSWORD
+            
         mlflow.set_tracking_uri(settings.MLFLOW_TRACKING_URI)
         mlflow.set_experiment(settings.MLFLOW_EXPERIMENT_NAME)
         

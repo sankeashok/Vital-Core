@@ -30,7 +30,9 @@ class Settings(BaseSettings):
     DATABASE_PATH: str = Field(default_factory=lambda: os.path.abspath(os.path.join(os.path.dirname(__file__), "../../data/feature_store.db")))
 
     # MLflow Registry Configuration
-    MLFLOW_TRACKING_URI: str = Field(default_factory=lambda: f"sqlite:///{os.path.abspath(os.path.join(os.path.dirname(__file__), '../../mlflow.db'))}")
+    MLFLOW_TRACKING_URI: str = Field(default_factory=lambda: f"sqlite:///{os.path.abspath(os.path.join(os.path.dirname(__file__), '../../mlflow.db'))}", env="MLFLOW_TRACKING_URI")
+    MLFLOW_TRACKING_USERNAME: Optional[str] = Field(default=None, env="MLFLOW_TRACKING_USERNAME")
+    MLFLOW_TRACKING_PASSWORD: Optional[str] = Field(default=None, env="MLFLOW_TRACKING_PASSWORD")
     MLFLOW_EXPERIMENT_NAME: str = "vital-core-wearable-analytics"
 
     # Clinical Copilot & Hugging Face Serverless Configuration

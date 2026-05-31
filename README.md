@@ -87,12 +87,27 @@ Vital-Core/
 ## 🚀 Getting Started
 
 ### 1. Configure Credentials
-Duplicate `.env.example` as `.env` and configure your Hugging Face Serverless Access Token:
+Duplicate `.env.example` as `.env` and configure your settings:
 ```env
+# Hugging Face Serverless API Token (For Clinical Copilot)
 HF_TOKEN=hf_your_access_token_here
 HF_MODEL_ID=Qwen/Qwen2.5-Coder-32B-Instruct
 APP_ENV=production
+
+# Optional: Hosted MLflow Experiment Tracking (Dagshub / Remote MLflow Server)
+# If left blank, it automatically falls back to your local SQLite mlflow.db
+MLFLOW_TRACKING_URI=https://dagshub.com/YOUR_USERNAME/YOUR_REPO_NAME.mlflow
+MLFLOW_TRACKING_USERNAME=YOUR_DAGSHUB_USERNAME
+MLFLOW_TRACKING_PASSWORD=YOUR_DAGSHUB_TOKEN_OR_PASSWORD
 ```
+
+### 📈 Optional: Free Remote MLflow Tracking with Dagshub
+Dagshub provides a **100% free hosted MLflow server** for any GitHub repository. To track your model parameters, metrics, Optuna trials, and scikit-learn models in their dashboard:
+1. Create a free account at **[Dagshub](https://dagshub.com)** and connect your GitHub repository.
+2. In your Dagshub repo dashboard, click on **"Remote"** -> **"MLflow"**.
+3. Copy the **MLflow Tracking URI**, **Username**, and **Access Token**.
+4. Paste them into your local `.env` file (as shown above) or configure them as Hugging Face Space Secrets!
+5. Start your server. Now, when retraining is triggered, all optuna trials, validation charts, and scikit-learn model versions will be pushed directly to your remote Dagshub dashboard!
 
 ### 2. Install Dependencies
 Ensure you have Python 3.9+ installed, then compile required dependencies:

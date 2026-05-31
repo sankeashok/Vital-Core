@@ -112,6 +112,10 @@ async def lifespan(app: Any):
     
     # 1. Setup MLflow Tracking backend
     os.environ["MLFLOW_TRACKING_URI"] = settings.MLFLOW_TRACKING_URI
+    if settings.MLFLOW_TRACKING_USERNAME:
+        os.environ["MLFLOW_TRACKING_USERNAME"] = settings.MLFLOW_TRACKING_USERNAME
+    if settings.MLFLOW_TRACKING_PASSWORD:
+        os.environ["MLFLOW_TRACKING_PASSWORD"] = settings.MLFLOW_TRACKING_PASSWORD
     
     # 2. Load the production model parameters
     success = load_active_model()
