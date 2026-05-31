@@ -139,6 +139,8 @@ async def health_check():
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "app_name": settings.APP_NAME,
         "environment": settings.APP_ENV,
+        "mlflow_tracking_uri": settings.MLFLOW_TRACKING_URI,
+        "mlflow_is_remote": settings.MLFLOW_TRACKING_URI.startswith("http://") or settings.MLFLOW_TRACKING_URI.startswith("https://"),
         "model_status": {
             "loaded": bool(model_store.get("model")),
             "version": model_info.get("version"),
